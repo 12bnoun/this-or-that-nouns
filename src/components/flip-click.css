@@ -2,7 +2,17 @@
   width: 200px;
   height: 250px;
   perspective: 600px;
-  margin-right: 40px;
+}
+
+@media (min-width: 701px) {
+  .scene {
+    margin-left: 20px;
+  }
+
+  .scene:first-child {
+    margin-right: 20px;
+    margin-left: 0px;
+  }
 }
 
 .card {
