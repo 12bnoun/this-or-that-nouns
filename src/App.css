@@ -52,5 +52,23 @@ body {
 }
 
 .gg-crown {
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+.gg-holder:hover .this-that {
+  color: pink;
+}
+
+.heart-fill {
+  fill: pink;
+}
+
+.gg-holder:hover .heart-empty {
+  display: none;
+}
+.heart-fill {
+  display: none;
+}
+.gg-holder:hover .heart-fill {
+  display: block;
 }
