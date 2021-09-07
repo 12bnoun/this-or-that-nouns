@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import detectEthereumProvider from '@metamask/detect-provider';
+import detectEthereumProvider from "@metamask/detect-provider";
 
 const ConnectWrapper = styled.div`
   display: flex;
@@ -10,13 +10,17 @@ const ConnectWrapper = styled.div`
 `;
 
 const ConnectButton = styled.div`
-  color: #2c3e50;
   font-weight: bold;
+  color: #2c3e50;
   border: 2px solid #2c3e50;
   padding: 5px 10px;
   margin-top: 30px;
   margin-right: 50px;
   cursor: pointer;
+  &:hover {
+    background: #2c3e50;
+    color: white;
+  }
 `;
 
 const AddressWrapper = styled.div`
@@ -54,7 +58,6 @@ class Connect extends React.Component {
     const { ethereum } = window;
 
     detectEthereumProvider().then((provider) => {
-
       if (ethereum) {
         ethereum.enable().then((addressList) => {
           this.setState({
@@ -63,7 +66,7 @@ class Connect extends React.Component {
           });
 
           this.props.addressUpdate(addressList[0]);
-        });  
+        });
       }
     });
   }
@@ -72,7 +75,6 @@ class Connect extends React.Component {
     const { ethereum } = window;
 
     if (ethereum) {
-
       const { connectedMetamask } = this.state;
 
       if (connectedMetamask) {
@@ -81,27 +83,29 @@ class Connect extends React.Component {
           address: undefined,
         });
       } else {
-        const addressList = await ethereum.request({ method: 'eth_requestAccounts' });
+        const addressList = await ethereum.request({
+          method: "eth_requestAccounts",
+        });
         this.setState({
           connectedMetamask: true,
           address: addressList[0],
         });
         this.props.addressUpdate(addressList[0]);
       }
-
     }
   }
 
   render() {
-
     const { address, connectedMetamask } = this.state;
 
     return (
       <ConnectWrapper>
         {address && <AddressWrapper>{address}</AddressWrapper>}
-        <ConnectButton onClick={() => this.connectMetamask()}>{connectedMetamask ? 'Disconnect':'Connect'}</ConnectButton>
+        <ConnectButton onClick={() => this.connectMetamask()}>
+          {connectedMetamask ? "Disconnect" : "Connect"}
+        </ConnectButton>
       </ConnectWrapper>
-    )
+    );
   }
 }
 

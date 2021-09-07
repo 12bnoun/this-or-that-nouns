@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { client, gql } from '../client';
-import { Link } from 'react-router-dom';
+import React from "react";
+import styled from "styled-components";
+import { client, gql } from "../client";
+import { Link } from "react-router-dom";
 
 const ThatWrapper = styled.div`
   background: papayawhip;
@@ -14,7 +14,7 @@ const ThatWrapper = styled.div`
 
 const TitleWrapper = styled.div`
   /*font-family: 'Cedarville Cursive', cursive;*/
-  font-family: 'Sacramento', cursive;
+  font-family: "Sacramento", cursive;
   font-size: 61px;
   font-weight: bold;
   margin-top: 20px;
@@ -76,42 +76,46 @@ class Leaderboard extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      ranking: []
+      ranking: [],
     };
   }
 
   componentDidMount() {
-    client.query({
-      query: gql`{
-        getRank {
-          hash
-          uri
-          score
-        }
-      }
-      `
-    }).then(response => {
-      this.setState({
-        ranking: response.data.getRank
+    client
+      .query({
+        query: gql`
+          {
+            getRank {
+              hash
+              uri
+              score
+            }
+          }
+        `,
+      })
+      .then((response) => {
+        this.setState({
+          ranking: response.data.getRank,
+        });
       });
-    });
   }
 
   render() {
-
     const ranking = this.state.ranking;
     return (
       <ThatWrapper>
         <TitleWrapper>
           <Link className="a-text" to="/">
-            <LeaderboardHeader><i class="gg-chevron-left-o"></i>&nbsp;&nbsp;this or that</LeaderboardHeader>
+            <LeaderboardHeader>
+              <i class="gg-chevron-left-o"></i>&nbsp;&nbsp;this or that
+            </LeaderboardHeader>
           </Link>
         </TitleWrapper>
         <LeaderboardWrapper>
-          <Header>&nbsp;&nbsp;<i className="em em-crown" aria-label="CROWN"></i></Header>
-          {
-            ranking.map(({ uri, hash, score }) => RankL(uri, hash, score))
-          }
+          <Header>
+            &nbsp;&nbsp;<i className="em em-crown" aria-label="CROWN"></i>
+          </Header>
+          {ranking.map(({ uri, hash, score }) => RankL(uri, hash, score))}
         </LeaderboardWrapper>
       </ThatWrapper>
     );
@@ -122,11 +126,14 @@ function RankL(uri, name, score) {
   return (
     <RankList key={name}>
       <RankImgWrapper>
-        <RankImg src={uri}/>
+        <RankImg src={uri} />
         <div>Noun #{name}</div>
       </RankImgWrapper>
-      <div><i className="em em-clap" aria-label="CLAP"></i>&nbsp;&nbsp;&nbsp;{parseFloat(score).toFixed(2)}</div>
+      <div>
+        <i className="em em-clap" aria-label="CLAP"></i>&nbsp;&nbsp;&nbsp;
+        {parseFloat(score).toFixed(2)}
+      </div>
     </RankList>
-  )
+  );
 }
 export default Leaderboard;
