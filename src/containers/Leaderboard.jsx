@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { client, gql } from "../client";
 import { Link } from "react-router-dom";
+import { CgChevronLeftO as BackArrow } from "react-icons/cg";
 
 const ThatWrapper = styled.div`
   background: papayawhip;
@@ -15,26 +16,34 @@ const ThatWrapper = styled.div`
 const TitleWrapper = styled.div`
   /*font-family: 'Cedarville Cursive', cursive;*/
   font-family: "Sacramento", cursive;
-  font-size: 61px;
+  font-family: "MinecraftiaRegular", sans-serif;
+  /* font-size: 61px; */
+  font-size: 50px;
   font-weight: bold;
   margin-top: 20px;
   color: #2c3e50;
+  @media (max-width: 700px) {
+    font-size: 40px;
+  }
 `;
 
 const RankImgWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: "MinecraftiaRegular", sans-serif;
 `;
 
 const LeaderboardWrapper = styled.div`
   background: white;
   width: 60%;
   min-height: 100vh;
-  border-radius: 25px 0px 25px 0px;
+  /* border-radius: 25px 0px 25px 0px; */
   border: 2px solid pink;
   margin-top: 20px;
   cursor: pointer;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
   @media (max-width: 500px) {
     width: 90%;
   }
@@ -46,6 +55,7 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid #bdc3c7;
+  cursor: default;
 `;
 
 const RankList = styled.div`
@@ -55,6 +65,10 @@ const RankList = styled.div`
   align-items: center;
   border-bottom: 1px solid #bdc3c7;
   justify-content: space-between;
+  font-family: "MinecraftiaRegular", sans-serif;
+  &:hover {
+    background: #feca57;
+  }
 `;
 
 const RankImg = styled.img`
@@ -105,11 +119,13 @@ class Leaderboard extends React.Component {
     return (
       <ThatWrapper>
         <TitleWrapper>
-          <Link className="a-text" to="/">
-            <LeaderboardHeader>
-              <i class="gg-chevron-left-o"></i>&nbsp;&nbsp;this or that
-            </LeaderboardHeader>
-          </Link>
+          <LeaderboardHeader>
+            {/* <i className="gg-chevron-left-o"></i>&nbsp;&nbsp;this or that */}
+            <Link className="back-link" to="/">
+              <BackArrow className="back-arrow" />
+            </Link>
+            this or that
+          </LeaderboardHeader>
         </TitleWrapper>
         <LeaderboardWrapper>
           <Header>
@@ -124,16 +140,18 @@ class Leaderboard extends React.Component {
 
 function RankL(uri, name, score) {
   return (
-    <RankList key={name}>
-      <RankImgWrapper>
-        <RankImg src={uri} />
-        <div>Noun #{name}</div>
-      </RankImgWrapper>
-      <div>
-        <i className="em em-clap" aria-label="CLAP"></i>&nbsp;&nbsp;&nbsp;
-        {parseFloat(score).toFixed(2)}
-      </div>
-    </RankList>
+    <a href={`https://nouns.wtf/noun/${name}`} key={name}>
+      <RankList>
+        <RankImgWrapper>
+          <RankImg src={uri} />
+          <div>Noun #{name}</div>
+        </RankImgWrapper>
+        <div className="clap">
+          <i className="em em-clap" aria-label="CLAP"></i>&nbsp;&nbsp;&nbsp;
+          {parseFloat(score).toFixed(2)}
+        </div>
+      </RankList>
+    </a>
   );
 }
 export default Leaderboard;

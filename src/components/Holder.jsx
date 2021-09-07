@@ -45,15 +45,15 @@ const LowerWrapper = styled.div`
   font-family: "MinecraftiaRegular", sans-serif;
 `;
 
-const Card = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  transform-origin: center right;
-  transition: transform 1s;
-`;
+// const Card = styled.div`
+//   position: relative;
+//   width: 100%;
+//   height: 100%;
+//   cursor: pointer;
+//   transform-style: preserve-3d;
+//   transform-origin: center right;
+//   transition: transform 1s;
+// `;
 
 class Holder extends React.Component {
   render() {
