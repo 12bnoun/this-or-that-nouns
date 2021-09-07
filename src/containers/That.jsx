@@ -15,7 +15,7 @@ import { withRouter } from "react-router-dom";
 const ThatWrapper = styled.div`
   background: papayawhip;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   /*justify-content: center;*/
@@ -44,22 +44,35 @@ const HolderWrapper = styled.div`
 
 const TitleWrapper = styled.div`
   /*font-family: 'Cedarville Cursive', cursive;*/
-  font-family: "Sacramento", cursive;
+  /* font-family: "Sacramento", cursive; */
+  font-family: "Minecraft", cursive;
   font-size: 61px;
   font-weight: bold;
   color: #2c3e50;
+
+  @media (max-width: 700px) {
+    font-size: 45px;
+  }
 `;
 
 const LeaderboardLink = styled.div`
   display: flex;
   align-items: center;
-  background: #f1c40f;
+  background: #f3cb2b;
+  border-color: #f3cb2b;
   padding: 10px 20px;
-  border-radius: 25px;
+  /* border-radius: 25px; */
+  font-family: Minecraft;
   cursor: pointer;
+  border-style: outset;
+
+  &:hover {
+    background: #e7bc0d;
+    border-color: #e7bc0d;
+  }
 
   @media (max-width: 700px) {
-    margin: 15px 0px;
+    margin: 25px 0px;
   }
 `;
 

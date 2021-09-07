@@ -1,6 +1,11 @@
+html,
+body {
+  height: 100%;
+}
+
 .App {
   text-align: center;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .App-logo {
@@ -44,4 +49,8 @@
 
 .gg-holder {
   font-weight: bold;
+}
+
+.gg-crown {
+  margin-right: 5px;
 }
