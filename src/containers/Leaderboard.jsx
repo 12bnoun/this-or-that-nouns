@@ -38,10 +38,12 @@ const LeaderboardWrapper = styled.div`
   background: white;
   width: 60%;
   min-height: 100vh;
-  border-radius: 25px 0px 25px 0px;
+  /* border-radius: 25px 0px 25px 0px; */
   border: 2px solid pink;
   margin-top: 20px;
   cursor: pointer;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
   @media (max-width: 500px) {
     width: 90%;
   }
@@ -53,6 +55,7 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid #bdc3c7;
+  cursor: default;
 `;
 
 const RankList = styled.div`
@@ -63,6 +66,9 @@ const RankList = styled.div`
   border-bottom: 1px solid #bdc3c7;
   justify-content: space-between;
   font-family: "MinecraftiaRegular", sans-serif;
+  &:hover {
+    background: #feca57;
+  }
 `;
 
 const RankImg = styled.img`
@@ -134,16 +140,18 @@ class Leaderboard extends React.Component {
 
 function RankL(uri, name, score) {
   return (
-    <RankList key={name}>
-      <RankImgWrapper>
-        <RankImg src={uri} />
-        <div>Noun #{name}</div>
-      </RankImgWrapper>
-      <div>
-        <i className="em em-clap" aria-label="CLAP"></i>&nbsp;&nbsp;&nbsp;
-        {parseFloat(score).toFixed(2)}
-      </div>
-    </RankList>
+    <a href={`https://nouns.wtf/noun/${name}`} key={name}>
+      <RankList>
+        <RankImgWrapper>
+          <RankImg src={uri} />
+          <div>Noun #{name}</div>
+        </RankImgWrapper>
+        <div className="clap">
+          <i className="em em-clap" aria-label="CLAP"></i>&nbsp;&nbsp;&nbsp;
+          {parseFloat(score).toFixed(2)}
+        </div>
+      </RankList>
+    </a>
   );
 }
 export default Leaderboard;
