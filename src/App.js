@@ -8,6 +8,12 @@ function App() {
       <link href="https://css.gg/crown.css" rel="stylesheet"></link>
       <link href="https://css.gg/chevron-left-o.css" rel="stylesheet"></link>
       <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet"></link>
+      <link
+        rel="stylesheet"
+        media="screen"
+        href="https://fontlibrary.org//face/minecraftia"
+        type="text/css"
+      />
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
@@ -15,8 +21,6 @@ function App() {
         url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
         @import
         url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
-        @import
-        url(//db.onlinewebfonts.com/c/6ab539c6fc2b21ff0b149b3d06d7f97c?family=Minecraft);
       </style>
       <div className="App">
         <AppState />

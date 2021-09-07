@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FaRegHeart as HeartEmpty, FaHeart as HeartFill } from "react-icons/fa";
 
 const HolderWrapper = styled.div`
   background: #ffffff;
@@ -41,6 +42,7 @@ const LowerWrapper = styled.div`
   height: 60px;
   margin-left: 15px;
   margin-right: 20px;
+  font-family: "MinecraftiaRegular", sans-serif;
 `;
 
 const Card = styled.div`
@@ -59,9 +61,11 @@ class Holder extends React.Component {
       <HolderWrapper className="gg-holder" onClick={() => this.props.click()}>
         <HolderImg src={this.props.imgSrc} />
         <LowerWrapper>
-          <div>{this.props.text}</div>
+          <div className="this-that">{this.props.text}</div>
           <div>
-            <i className="gg-heart gg-pink"></i>
+            {/* <i className="gg-heart gg-pink"></i> */}
+            <HeartEmpty className="heart-empty" />
+            <HeartFill className="heart-fill" />
           </div>
         </LowerWrapper>
       </HolderWrapper>

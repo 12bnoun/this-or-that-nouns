@@ -45,7 +45,8 @@ const HolderWrapper = styled.div`
 const TitleWrapper = styled.div`
   /*font-family: 'Cedarville Cursive', cursive;*/
   /* font-family: "Sacramento", cursive; */
-  font-family: "Minecraft", cursive;
+  font-family: "MinecraftiaRegular", sans-serif;
+  font-style: normal !important;
   font-size: 61px;
   font-weight: bold;
   color: #2c3e50;
@@ -62,7 +63,9 @@ const LeaderboardLink = styled.div`
   border-color: #f3cb2b;
   padding: 10px 20px;
   /* border-radius: 25px; */
-  font-family: Minecraft;
+  font-family: "MinecraftiaRegular", sans-serif;
+  font-style: normal !important;
+
   cursor: pointer;
   border-style: outset;
 
@@ -176,7 +179,7 @@ class That extends React.Component {
       ? this.updateRank(left.hash, right.hash)
       : this.updateRank(right.hash, left.hash);
 
-    if (limit == 12) {
+    if (limit === 12) {
       this.props.history.push("/nouns/leaderboard");
     }
 
@@ -274,7 +277,7 @@ class That extends React.Component {
 
         <Link className="a-text" to="/nouns/leaderboard">
           <LeaderboardLink>
-            <i className="gg-crown"></i>&nbsp;&nbsp;Affinity Ranking
+            <i className="gg-crown"></i>Affinity Ranking
           </LeaderboardLink>
         </Link>
       </ThatWrapper>
