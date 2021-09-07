@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { client, gql } from "../client";
 import { Link } from "react-router-dom";
+import { CgChevronLeftO as BackArrow } from "react-icons/cg";
 
 const ThatWrapper = styled.div`
   background: papayawhip;
@@ -15,16 +16,22 @@ const ThatWrapper = styled.div`
 const TitleWrapper = styled.div`
   /*font-family: 'Cedarville Cursive', cursive;*/
   font-family: "Sacramento", cursive;
-  font-size: 61px;
+  font-family: "MinecraftiaRegular", sans-serif;
+  /* font-size: 61px; */
+  font-size: 50px;
   font-weight: bold;
   margin-top: 20px;
   color: #2c3e50;
+  @media (max-width: 700px) {
+    font-size: 40px;
+  }
 `;
 
 const RankImgWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: "MinecraftiaRegular", sans-serif;
 `;
 
 const LeaderboardWrapper = styled.div`
@@ -55,6 +62,7 @@ const RankList = styled.div`
   align-items: center;
   border-bottom: 1px solid #bdc3c7;
   justify-content: space-between;
+  font-family: "MinecraftiaRegular", sans-serif;
 `;
 
 const RankImg = styled.img`
@@ -105,11 +113,13 @@ class Leaderboard extends React.Component {
     return (
       <ThatWrapper>
         <TitleWrapper>
-          <Link className="a-text" to="/">
-            <LeaderboardHeader>
-              <i class="gg-chevron-left-o"></i>&nbsp;&nbsp;this or that
-            </LeaderboardHeader>
-          </Link>
+          <LeaderboardHeader>
+            {/* <i className="gg-chevron-left-o"></i>&nbsp;&nbsp;this or that */}
+            <Link className="back-link" to="/">
+              <BackArrow className="back-arrow" />
+            </Link>
+            this or that
+          </LeaderboardHeader>
         </TitleWrapper>
         <LeaderboardWrapper>
           <Header>
