@@ -228,50 +228,23 @@ class That extends React.Component {
         <HolderWrapper>
           <div className="scene">
             <div className={isFrontLeft ? "card" : "card is-flipped"}>
-              <div
-                className={
-                  isFrontLeft ? "card__face" : "card__face front--hidden"
-                }
-              >
-                <Holder
-                  text="this"
-                  imgSrc={!isFrontLeft ? defaultUri : left.uri}
-                  click={() => this.holderClick(true)}
-                ></Holder>
+              <div className={isFrontLeft ? "card__face" : "card__face front--hidden"}>
+                <Holder text="this" imgSrc={!isFrontLeft ? defaultUri : left.uri} click={() => this.holderClick(true)}></Holder>
               </div>
-
               <div className="card__face card__face--back">
-                <Holder
-                  text="this"
-                  imgSrc={!isFrontLeft ? left.uri : defaultUri}
-                  click={() => this.holderClick(true)}
-                ></Holder>
+                <Holder text="this" imgSrc={!isFrontLeft ? left.uri : defaultUri} click={() => this.holderClick(true)}></Holder>
               </div>
             </div>
           </div>
-
           <div className="scene">
-            <div className={isFrontRight ? "card" : "card is-flipped-right"}>
-              <div
-                className={
-                  isFrontRight ? "card__face" : "card__face front--hidden"
-                }
-              >
-                <Holder
-                  text="that"
-                  imgSrc={!isFrontRight ? defaultUri : right.uri}
-                  click={() => this.holderClick(false)}
-                ></Holder>
-              </div>
-
-              <div className="card__face card__face--back">
-                <Holder
-                  text="that"
-                  imgSrc={!isFrontRight ? right.uri : defaultUri}
-                  click={() => this.holderClick(false)}
-                ></Holder>
-              </div>
+          <div className={isFrontRight ? "card" : "card is-flipped-right"}>
+            <div className={isFrontRight ? "card__face" : "card__face front--hidden"}>
+              <Holder text="that" imgSrc={!isFrontRight ? defaultUri : right.uri} click={() => this.holderClick(false)}></Holder>
             </div>
+            <div className="card__face card__face--back">
+              <Holder text="that" imgSrc={!isFrontRight ? right.uri : defaultUri} click={() => this.holderClick(false)}></Holder>
+            </div>
+          </div>
           </div>
         </HolderWrapper>
 
@@ -286,3 +259,56 @@ class That extends React.Component {
 }
 
 export default withRouter(That);
+
+
+/*
+/*
+<HolderWrapper>
+  <div className="scene">
+    <div className={isFrontLeft ? "card" : "card"}>
+      <div
+        className={
+          isFrontLeft ? "card__face" : "card__face"
+        }
+      >
+        <Holder
+          text="this"
+          imgSrc={!isFrontLeft ? defaultUri : left.uri}
+          click={() => this.holderClick(true)}
+        ></Holder>
+      </div>
+
+      <div className="card__face card__face--back">
+        <Holder
+          text="this"
+          imgSrc={!isFrontLeft ? left.uri : defaultUri}
+          click={() => this.holderClick(true)}
+        ></Holder>
+      </div>
+    </div>
+  </div>
+
+  <div className="scene">
+    <div className={isFrontRight ? "card" : "card"}>
+      <div
+        className={
+          isFrontRight ? "card__face" : "card__face"
+        }
+      >
+        <Holder
+          text="that"
+          imgSrc={!isFrontRight ? defaultUri : right.uri}
+          click={() => this.holderClick(false)}
+        ></Holder>
+      </div>
+
+      <div className="card__face card__face--back">
+        <Holder
+          text="that"
+          imgSrc={!isFrontRight ? right.uri : defaultUri}
+          click={() => this.holderClick(false)}
+        ></Holder>
+      </div>
+    </div>
+  </div>
+</HolderWrapper>*/

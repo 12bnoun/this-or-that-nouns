@@ -16,11 +16,10 @@
 }
 
 .card {
-  width: 100%;
-  height: 100%;
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
+  /*border: 2px solid black;*/
 }
 
 .card__face {
